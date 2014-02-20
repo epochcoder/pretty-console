@@ -3,7 +3,6 @@ package com.github.epochcoder.prettyconsole;
 /**
  * interface for defining handlers for certain console box keys
  * @author Willie Scholtz
- * @version 1.43
  */
 public interface ConsoleBoxKeyHandler {
 

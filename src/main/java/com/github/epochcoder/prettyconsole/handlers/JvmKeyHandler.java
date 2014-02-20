@@ -1,3 +1,4 @@
+
 package com.github.epochcoder.prettyconsole.handlers;
 
 import com.github.epochcoder.prettyconsole.ConsoleBoxKeyHandler;
@@ -9,9 +10,11 @@ import com.google.common.collect.Iterables;
 /**
  * ensures that JVM system properties are handled correctly by consolebox
  * @author Willie Scholtz
- * @version 1.43
  */
 public class JvmKeyHandler implements ConsoleBoxKeyHandler {
+    
+    private static final boolean WINDOWS = System.getProperty("os.name").indexOf("Windows") > -1;
+    
     /**
      * keys that should be converted to new lines
      */
@@ -47,7 +50,7 @@ public class JvmKeyHandler implements ConsoleBoxKeyHandler {
     public String handleValue(String key, String value) {
         for (String string : CLASSPATHS) {
             if (string.equals(key)) {
-                value = Joiner.on("\n").join(Iterables.transform(Splitter.on(";").split(value),
+                value = Joiner.on("\n").join(Iterables.transform(Splitter.on(WINDOWS ? ";" : ":").split(value),
                         new Function<String, String>() {
                     int item = 0;
                     @Override

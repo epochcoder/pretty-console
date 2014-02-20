@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 /**
  * ensures no passwords are present in the ConsoleBox
  * @author Willie Scholtz
- * @version 1.43
  */
 public class ConsoleBoxPasswordHandler implements ConsoleBoxKeyHandler {
     /**
